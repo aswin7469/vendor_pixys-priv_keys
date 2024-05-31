@@ -2,7 +2,7 @@
 
 AVBTOOL=.bin/avbtool
 hash="-sha256"
-output_dir="~/.android-certs"
+output_dir="../../security/pixys"
 
 # Create the output directory if it doesn't exist
 mkdir -p ${output_dir}
@@ -68,8 +68,8 @@ for index in "${!apexes[@]}"; do
     fi
 done
 echo "" >> ${output_dir}/keys.mk
-echo "PRODUCT_DEFAULT_DEV_CERTIFICATE := releasekey" >> ${output_dir}/keys.mk
-echo "PRODUCT_OTA_PUBLIC_KEYS := releasekey.x509.pem" >> ${output_dir}/keys.mk
+echo "PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/security/pixys/releasekey" >> ${output_dir}/keys.mk
+echo "PRODUCT_OTA_PUBLIC_KEYS := vendor/security/pixys/releasekey.x509.pem" >> ${output_dir}/keys.mk
 
 # Copy BUILD rules to output directory
 cp BUILD* ${output_dir}/
