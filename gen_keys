@@ -12,7 +12,7 @@ for cert in $(cat _data/cert_keys.txt); do
     key_platform="${output_dir}/${cert}.pem"
     cert_file="${output_dir}/${cert}.x509.pem"
     if [ ! -f ${key_platform} ]; then
-        openssl genrsa -out ${key_platform} -f4 4096
+        openssl genrsa -out ${key_platform} -f4 2048
     fi
     if ! openssl x509 -checkend 86400 -noout -in ${cert_file} &> /dev/null; then
         openssl req -new -x509 ${hash} -key ${key_platform} -out ${cert_file} -days 10000 -subj "$subject"
