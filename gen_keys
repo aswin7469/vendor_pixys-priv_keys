@@ -8,7 +8,7 @@ output_dir="../../security/pixys"
 mkdir -p ${output_dir}
 
 # Certificate subject details
-subject="/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com"
+subject="/C=US/ST=California/L=Mountain View/O=PixysOS/OU=PixysOS/CN=PixysOS/emailAddress=pixysos@pixysos.com"
 for cert in $(cat _data/cert_keys.txt); do
     key_platform="${output_dir}/${cert}.pem"
     cert_file="${output_dir}/${cert}.x509.pem"
@@ -23,7 +23,7 @@ done
 
 # Apex keys
 for apex in $(cat _data/apex_keys.txt); do
-    subject="/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com"
+    subject="/C=US/ST=California/L=Mountain View/O=PixysOS/OU=PixysOS/CN=PixysOS/emailAddress=pixysos@pixysos.com"
     key_apex="${output_dir}/${apex}.pem"
     cert_file="${output_dir}/${apex}.certificate.override.x509.pem"
     if [ ! -f ${key_apex} ]; then
